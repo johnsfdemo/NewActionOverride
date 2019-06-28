@@ -16,7 +16,7 @@ To actually override the button, [follow these instructions](https://help.salesf
 
 # Support for Record Types
 
-If your object uses record types, it is important to set a `recordTypeId=` attribute in the `lightning:recordForm` so that the right choices in anyn picklist fields you select will be shown in the modal dialog. Please see the [documentation](https://developer.salesforce.com/docs/component-library/bundle/lightning:recordForm/documentation) for `lightning:recordForm` for more details.
+If your object uses record types, it is important to set a `recordTypeId=` attribute in the `lightning:recordForm` so that the right choices in any picklist fields you select will be shown in the modal dialog. Please see the [documentation](https://developer.salesforce.com/docs/component-library/bundle/lightning:recordForm/documentation) for `lightning:recordForm` for more details.
 
 If you have a default record type for the object you are configuring, you may not want the record type picker showing up each time you click the `New` button. To prevent that record type selection screen from appearing, click on your user picture icon in the upper right corner of the page and go to `Settings` -> `Display and Layout` -> `Set Default Record Types` and click the checkbox next to the object you are configuring.
 
