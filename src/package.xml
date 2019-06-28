@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Package xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>NewActionOverride</fullName>
+    <description>Lightning component to override the New action on an object.</description>
+    <types>
+        <members>NewActionOverride</members>
+        <name>AuraDefinitionBundle</name>
+    </types>
+    <types>
+        <members>NewActionLogo</members>
+        <name>StaticResource</name>
+    </types>
+    <version>45.0</version>
+</Package>

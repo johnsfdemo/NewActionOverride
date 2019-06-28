@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<AuraDefinitionBundle xmlns="http://soap.sforce.com/2006/04/metadata">
+    <apiVersion>46.0</apiVersion>
+    <description>Lightning component that overrides the &quot;New&quot; action on an object, allowing the administrator/developer to specify only the fields of that object necessary to create a new record. Works with both standard and console navigation.</description>
+</AuraDefinitionBundle>

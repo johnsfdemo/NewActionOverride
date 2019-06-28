@@ -1,0 +1,49 @@
+<aura:component implements="lightning:actionOverride,force:hasSObjectName" description="Lightning component override for New button action" access="global">
+    
+    <aura:attribute name="fields" type="String[]" default="['Origin', 'Priority']" />
+    <aura:attribute name="successMessage" type="String" default="New record successfully created." />    
+    <aura:attribute name="logoResource" type="String" default="NewActionLogo" access="private" />    
+
+    <aura:attribute name="isConsole" type="Boolean" access="private" />
+    <aura:attribute name="tabId" type="String" access="private" />						<!-- for console navigation -->
+    <aura:attribute name="isOpen" type="Boolean" default="false" access="private" />	<!-- for standard navigation -->
+    
+    <lightning:workspaceAPI aura:id="workspace" />
+    <lightning:navigation aura:id="navService" />
+    <lightning:notificationsLibrary aura:id="notifLib" />
+    
+    <aura:handler name="init" value="{!this}" action="{!c.onInit}" />
+    
+    <aura:if isTrue="{!v.isConsole || v.isOpen}">
+        <div role="dialog" tabindex="-1" class="slds-modal slds-modal_small slds-fade-in-open" aria-modal="true" aria-labelledby="modal-heading" aria-describedby="modal-content">
+            <div class="slds-modal__container">
+                <div class="slds-modal__header slds-p-around_medium">
+                    <div class="slds-media slds-media_center">
+                        <div class="slds-media__figure slds-p-right_large">
+                            <img src="{!'/resource/' + v.logoResource}" class="modalHeaderLogo" />
+                        </div>
+                        <div class="slds-media__body" id="modal-heading">
+                            <p class="slds-text-align_center slds-text-heading_medium">
+                                New Record
+                            </p>
+                            <p class="slds-text-align_left slds-p-top_small slds-hyphenate">
+                                Enter as much information as you know about the record. Use the information tooltips to get insights on what
+                                each of the items represents. You can always add more information to the record at a later time if you wish.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <div class="slds-modal__content slds-p-around_medium" id="modal-content">
+                    <lightning:recordForm objectApiName="{!v.sObjectName}"
+                                          mode="edit"
+                                          fields="{!v.fields}"
+                                          columns="2"
+                                          onsuccess="{!c.handleSaved}"
+                                          onerror="{!c.handleError}"
+                                          oncancel="{!c.handleCancelled}" />
+                </div>
+            </div>
+        </div>
+        <div aura:id="overlay" class="slds-backdrop slds-backdrop--open" />
+    </aura:if>    
+</aura:component>
